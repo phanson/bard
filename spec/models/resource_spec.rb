@@ -14,6 +14,7 @@ RSpec.describe Resource, :type => :model do
   it { should respond_to(:type) }
   it { should respond_to(:date) }
   it { should respond_to(:url) }
+  it { should respond_to(:passages) }
 
   it { should be_valid }
 

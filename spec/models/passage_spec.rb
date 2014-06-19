@@ -28,4 +28,58 @@ RSpec.describe Passage, :type => :model do
     before { passage.body = "short body" }
     it { should_not be_valid }
   end
+
+  describe "with a resource" do
+    let(:book) { ResourceType.create(name: "book") }
+    let(:resource) { Resource.create(name: "The Cryptonomicon",
+                                     authors: "Alan Turing and Lawrence Ritchard Waterhouse",
+                                     type: book,
+                                     date: Date.new(1939, 1, 1)) }
+    before do
+      passage.resource = resource
+      passage.save!
+    end
+
+    it "should report its resource" do
+      expect(passage.resource).to eq(resource)
+    end
+
+    it "should appear in the resource's list of passages" do
+      expect(resource.passages).to include(passage)
+    end
+  end
+
+  describe "with an author" do
+    let(:author) { Person.create(name: "e e cummings") }
+    before do
+      passage.author = author
+      passage.save!
+    end
+
+    it "should report its author" do
+      expect(passage.author).to eq(author)
+    end
+
+    it "should appear in the author's list of passages" do
+      expect(author.passages).to include(passage)
+    end
+  end
+
+  describe "with tags" do
+    let(:jacobite) { Tag.create(name: "jacobite") }
+    let(:loyalist) { Tag.create(name: "loyalist") }
+    before do
+      passage.tags = [jacobite, loyalist]
+      passage.save!
+    end
+
+    it "should report all of its tags" do
+      expect(passage.tags).to include(jacobite)
+      expect(passage.tags).to include(loyalist)
+    end
+
+    it "should appear in the tags' lists of passages" do
+      expect(jacobite.passages).to include(passage)
+    end
+  end
 end

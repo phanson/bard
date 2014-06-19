@@ -5,6 +5,9 @@ RSpec.describe Person, :type => :model do
 
   subject { poe }
 
+  it { should respond_to(:name) }
+  it { should respond_to(:passages) }
+
   it { should be_valid }
 
   describe "when name is empty" do

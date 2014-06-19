@@ -6,6 +6,8 @@ RSpec.describe Tag, :type => :model do
   subject { tag }
 
   it { should respond_to(:name) }
+  it { should respond_to(:passages) }
+
   it { should be_valid }
 
   describe "with no name" do
