@@ -18,12 +18,10 @@ RSpec.describe Resource, :type => :model do
 
   it { should be_valid }
 
+  its(:type) { should eq book }
+
   describe "with no name" do
     before { resource.name = "" }
     it { should_not be_valid }
-  end
-
-  it "should have type that was passed in" do
-    expect(resource.type).to eq(book)
   end
 end

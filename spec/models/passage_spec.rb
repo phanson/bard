@@ -40,9 +40,7 @@ RSpec.describe Passage, :type => :model do
       passage.save!
     end
 
-    it "should report its resource" do
-      expect(passage.resource).to eq(resource)
-    end
+    its(:resource) { should eq resource }
 
     it "should appear in the resource's list of passages" do
       expect(resource.passages).to include(passage)
@@ -56,9 +54,7 @@ RSpec.describe Passage, :type => :model do
       passage.save!
     end
 
-    it "should report its author" do
-      expect(passage.author).to eq(author)
-    end
+    its(:author) { should eq author }
 
     it "should appear in the author's list of passages" do
       expect(author.passages).to include(passage)
@@ -73,10 +69,8 @@ RSpec.describe Passage, :type => :model do
       passage.save!
     end
 
-    it "should report all of its tags" do
-      expect(passage.tags).to include(jacobite)
-      expect(passage.tags).to include(loyalist)
-    end
+    its(:tags) { should include jacobite }
+    its(:tags) { should include loyalist }
 
     it "should appear in the tags' lists of passages" do
       expect(jacobite.passages).to include(passage)
