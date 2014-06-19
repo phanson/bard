@@ -1,0 +1,15 @@
+<h1><%= @person.name %></h1>
+
+<p><%= link_to 'edit', edit_person_path(@person) %>
+|
+<%= link_to 'delete', @person, method: :delete, data: { confirm: "Are you sure you want to delete #{@person.name}?" } %></p>
+
+<p><%= pluralize(@person.passages.count, 'passage') %></p>
+
+<ul>
+  <% for passage in @person.passages %>
+  <li><%= passage.body %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'back', people_path %>
