@@ -1,3 +1,4 @@
+# -*- mode: ruby -*-
 source 'https://rubygems.org'
 ruby '1.9.3'
 
@@ -15,6 +16,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'rspec-its'
+  gem 'capybara'
 end
 
 # bundle exec rake doc:rails generates the API under doc/api.
