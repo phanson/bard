@@ -1,0 +1,11 @@
+<h1>Resource Types</h1>
+
+<%= link_to "add", new_resource_type_path %>
+
+<ul>
+  <% for type in @types %>
+  <li><%= link_to type.name, type %></li>
+  <% end %>
+</ul>
+
+<%= link_to "add", new_resource_type_path %>

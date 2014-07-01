@@ -1,0 +1,13 @@
+<h1><%= @type.name %></h1>
+
+<p><%= link_to 'edit', edit_resource_type_path(@type) %><% if @resources.count == 0 %>
+|
+<%= link_to 'delete', @type, method: :delete, data: { confirm: "Are you sure you want to delete #{@type.name}?" } %><% end %></p>
+
+<p><%= pluralize(@resources.count, @type.name) %>:</p>
+
+<ul>
+  <% for resource in @resources %>
+  <li>"<%= resource.name %>"</li>
+  <% end %>
+</ul>

@@ -1,0 +1,9 @@
+<h1>Edit Resource Type</h1>
+
+<%= form_for(@type) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= link_to "Cancel", @type %>
+<%= f.submit "Save" %>
+<% end %>
