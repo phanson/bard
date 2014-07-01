@@ -1,0 +1,9 @@
+<h1>Edit Tag</h1>
+
+<%= form_for(@tag) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= link_to "Cancel", @tag %>
+<%= f.submit "Save" %>
+<% end %>

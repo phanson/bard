@@ -1,0 +1,13 @@
+<h1><%= @tag.name %></h1>
+
+<p><%= link_to 'edit', edit_tag_path(@tag) %><% if @passages.count == 0 %>
+|
+<%= link_to 'delete', @tag, method: :delete, data: { confirm: "Are you sure you want to delete #{@tag.name}?" } %><% end %></p>
+
+<p><%= pluralize(@passages.count, 'passage') %> tagged with <em><%= @tag.name %></em>:</p>
+
+<ul>
+  <% for passage in @passages %>
+  <li>"<%= passage.body %>"</li>
+  <% end %>
+</ul>

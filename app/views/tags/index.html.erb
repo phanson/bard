@@ -1,0 +1,11 @@
+<h1>Tags</h1>
+
+<%= link_to "add", new_tag_path %>
+
+<ul>
+  <% for tag in @tags %>
+  <li><%= link_to tag.name, tag %></li>
+  <% end %>
+</ul>
+
+<%= link_to "add", new_tag_path %>
