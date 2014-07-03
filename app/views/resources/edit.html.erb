@@ -1,0 +1,21 @@
+<h1>Edit Resource</h1>
+
+<%= form_for(@resource) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :authors %>
+<%= f.text_field :authors %>
+
+<%= f.label :type_id, "Type" %>
+<%= f.collection_select :type_id, ResourceType.order(:name), :id, :name %>
+
+<%= f.label :date %>
+<%= f.date_field :date %>
+
+<%= f.label :url, "URL" %>
+<%= f.url_field :url %>
+
+<%= link_to "Cancel", resources_path %>
+<%= f.submit "Save" %>
+<% end %>

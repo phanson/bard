@@ -1,0 +1,11 @@
+<h1><%= @resource.name %></h1>
+
+<p><%= link_to "edit", edit_resource_path(@resource) %>
+|
+<%= link_to "delete", @resource, method: :delete, data: { confirm: "Are you sure you want to delete #{@resource.name}?" } %></p>
+
+<p><strong>Authors</strong>: <%= @resource.authors %></p>
+<p><strong>Type</strong>: <%= link_to @resource.type.name, @resource.type %></p>
+<% if @resource.date %>
+<p><strong>Date</strong>: <%= @resource.date %></p>
+<% end %>
