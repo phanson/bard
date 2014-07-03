@@ -1,0 +1,21 @@
+<h1>Passages</h1>
+
+<ul>
+  <% for passage in @passages %>
+  <li>
+    <% if passage.title.present? %>
+    <%= link_to passage.title, passage %>
+    <% else %>
+    <%= link_to passage.body, passage %>
+    <% end %>
+
+    <% if passage.author %>
+    (<%= link_to passage.author.name, passage.author %>)
+    <% end %>
+
+    <% if passage.resource %>
+    (<%= link_to passage.resource.name, passage.resource %>)
+    <% end %>
+  </li>
+  <% end %>
+</ul>

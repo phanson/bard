@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :tags
   resources :resource_types
   resources :resources
+  resources :passages
 end

@@ -1,0 +1,18 @@
+<h1>New Passage</h1>
+
+<%= form_for(@passage) do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+
+<%= f.label :body %>
+<%= f.text_area :body %>
+
+<%= f.label :resource_id, "Resource" %>
+<%= f.collection_select :resource_id, Resource.order(:name), :id, :name, include_blank: true %>
+
+<%= f.label :author_id, "Author" %>
+<%= f.collection_select :author_id, Person.order(:name), :id, :name, include_blank: true %>
+
+<%= link_to "Cancel", passages_path %>
+<%= f.submit "Create" %>
+<% end %>

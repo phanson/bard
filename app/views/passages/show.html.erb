@@ -1,0 +1,17 @@
+<h1>Passage</h1>
+
+<h2><%= @passage.title %></h2>
+
+<p><%= @passage.body %></p>
+
+<% if @passage.resource %>
+<p><%= @passage.resource.type.name %>: <%= link_to @passage.resource.name, @passage.resource %> by <%= @passage.resource.authors %></p>
+<% end %>
+
+<% if @passage.author %>
+<p><%= link_to @passage.author.name, @passage.author %></p>
+<% end %>
+
+<p><%= link_to "edit", edit_passage_path(@passage) %>
+|
+<%= link_to "delete", @passage, method: :delete, data: { confirm: "Are you sure you want to delete this passage?" } %></p>
