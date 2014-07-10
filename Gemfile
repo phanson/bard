@@ -4,6 +4,9 @@ ruby '1.9.3'
 
 gem 'rails', '4.1.1'
 gem 'jquery-rails'
+gem 'bootstrap-sass', '~> 3.2'
+gem 'will_paginate', '~> 3.0.3'
+gem 'bootstrap-will_paginate', '~> 0.0.6'
 
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
