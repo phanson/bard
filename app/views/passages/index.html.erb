@@ -1,5 +1,7 @@
 <h1>Passages</h1>
 
+<%= link_to "add", new_passage_path %>
+
 <ul>
   <% for passage in @passages %>
   <li>
@@ -19,3 +21,5 @@
   </li>
   <% end %>
 </ul>
+
+<%= link_to "add", new_passage_path %>

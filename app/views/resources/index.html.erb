@@ -1,7 +1,11 @@
 <h1>Resources</h1>
 
+<%= link_to "add", new_resource_path %>
+
 <ul>
   <% for resource in @resources %>
   <li><%= link_to resource.name, resource %></li>
   <% end %>
 </ul>
+
+<%= link_to "add", new_resource_path %>

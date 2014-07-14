@@ -15,6 +15,8 @@ RSpec.describe "Resource pages", type: :feature do
 
     it { should have_selector('h1', text: "Resources") }
     it { should have_link(resource.name, href: resource_path(resource)) }
+
+    it { should have_link("add", href: new_resource_path, count: 2) }
   end
 
   describe "show page" do

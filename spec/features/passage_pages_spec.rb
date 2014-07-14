@@ -28,6 +28,8 @@ RSpec.describe "Passage pages", type: :feature do
 
     it { should have_link(titled_passage.title, passage_path(titled_passage)) }
     it { should have_link(resource.name, resource_path(resource)) }
+
+    it { should have_link("add", href: new_passage_path, count: 2) }
   end
 
   describe "show page" do
