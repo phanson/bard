@@ -2,11 +2,15 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <ul>
-      <% for person in @people %>
-      <li><%= link_to person.name, person %></li>
-      <% end %>
-    </ul>
+    <table class="table table-hover">
+      <tbody>
+        <% for person in @people %>
+        <tr>
+          <td><%= link_to person.name, person %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 
