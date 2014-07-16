@@ -1,11 +1,17 @@
-<h1>Resource Types</h1>
+<h1>Resource Types <%= link_to "add", new_resource_type_path, class: "btn btn-sm btn-primary" %></h1>
 
-<%= link_to "add", new_resource_type_path %>
+<div class="row">
+  <div class="col-xs-12">
+    <ul>
+      <% for type in @types %>
+      <li><%= link_to type.name, type %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
-<ul>
-  <% for type in @types %>
-  <li><%= link_to type.name, type %></li>
-  <% end %>
-</ul>
-
-<%= link_to "add", new_resource_type_path %>
+<div class="row">
+  <div class="col-xs-12">
+    <%= link_to "add", new_resource_type_path, class: "btn btn-sm btn-primary" %>
+  </div>
+</div>
