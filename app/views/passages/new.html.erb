@@ -1,18 +1,30 @@
 <h1>New Passage</h1>
 
-<%= form_for(@passage) do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %>
+<div class="row">
+  <div class="col-xs-12">
+    <%= form_for(@passage) do |f| %>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
 
-<%= f.label :body %>
-<%= f.text_area :body %>
+    <div class="form-group">
+      <%= f.label :body %>
+      <%= f.text_area :body, rows: 10, class: "form-control" %>
+    </div>
 
-<%= f.label :resource_id, "Resource" %>
-<%= f.collection_select :resource_id, Resource.order(:name), :id, :name, include_blank: true %>
+    <div class="form-group">
+      <%= f.label :resource_id, "Resource" %>
+      <%= f.collection_select :resource_id, Resource.order(:name), :id, :name, { include_blank: true }, { class: "form-control" } %>
+    </div>
 
-<%= f.label :author_id, "Author" %>
-<%= f.collection_select :author_id, Person.order(:name), :id, :name, include_blank: true %>
+    <div class="form-group">
+      <%= f.label :author_id, "Author" %>
+      <%= f.collection_select :author_id, Person.order(:name), :id, :name, { include_blank: true }, { class: "form-control" } %>
+    </div>
 
-<%= link_to "Cancel", passages_path %>
-<%= f.submit "Create" %>
-<% end %>
+    <%= link_to "Cancel", passages_path, class: "btn btn-danger" %>
+    <%= f.submit "Create", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

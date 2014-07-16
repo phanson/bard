@@ -1,9 +1,15 @@
 <h1>Edit Tag</h1>
 
-<%= form_for(@tag) do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
+<div class="row">
+  <div class="col-xs-12">
+    <%= form_for(@tag) do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
 
-<%= link_to "Cancel", @tag %>
-<%= f.submit "Save" %>
-<% end %>
+    <%= link_to "Cancel", @tag, class: "btn btn-danger" %>
+    <%= f.submit "Save", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

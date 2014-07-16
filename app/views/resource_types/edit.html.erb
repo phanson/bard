@@ -1,9 +1,15 @@
 <h1>Edit Resource Type</h1>
 
-<%= form_for(@type) do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
+<div class="row">
+  <div class="col-xs-12">
+    <%= form_for(@type) do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
 
-<%= link_to "Cancel", @type %>
-<%= f.submit "Save" %>
-<% end %>
+    <%= link_to "Cancel", @type, class: "btn btn-danger" %>
+    <%= f.submit "Save", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

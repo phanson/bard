@@ -1,21 +1,35 @@
 <h1>New Resource</h1>
 
-<%= form_for(@resource) do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
+<div class="row">
+  <div class="col-xs-12">
+    <%= form_for(@resource) do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
 
-<%= f.label :authors %>
-<%= f.text_field :authors %>
+    <div class="form-group">
+      <%= f.label :authors %>
+      <%= f.text_field :authors, class: "form-control" %>
+    </div>
 
-<%= f.label :type_id, "Type" %>
-<%= f.collection_select :type_id, ResourceType.order(:name), :id, :name %>
+    <div class="form-group">
+      <%= f.label :type_id, "Type" %>
+      <%= f.collection_select :type_id, ResourceType.order(:name), :id, :name, {}, { class: "form-control" } %>
+    </div>
 
-<%= f.label :date %>
-<%= f.date_field :date %>
+    <div class="form-group">
+      <%= f.label :date %>
+      <%= f.date_field :date, class: "form-control" %>
+    </div>
 
-<%= f.label :url, "URL" %>
-<%= f.url_field :url %>
+    <div class="form-group">
+      <%= f.label :url, "URL" %>
+      <%= f.url_field :url, class: "form-control" %>
+    </div>
 
-<%= link_to "Cancel", resources_path %>
-<%= f.submit "Create" %>
-<% end %>
+    <%= link_to "Cancel", resources_path, class: "btn btn-danger" %>
+    <%= f.submit "Create", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
