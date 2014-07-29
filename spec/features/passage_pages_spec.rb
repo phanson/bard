@@ -37,8 +37,10 @@ RSpec.describe "Passage pages", type: :feature do
     let(:resource) { Resource.create(name: "Some Book",
                                      authors: "Some Guy and Some Other Guy",
                                      type: type) }
+    let(:tag) { Tag.create(name: "thuggish") }
     let(:passage) { Passage.create(body: "This is a passage without a title.",
-                                   resource: resource) }
+                                   resource: resource,
+                                   tags: [tag]) }
     before do
       passage.save
       visit passage_path(passage)
@@ -49,6 +51,7 @@ RSpec.describe "Passage pages", type: :feature do
     it { should have_link(resource.name, resource_path(resource)) }
     it { should have_content(resource.authors) }
     it { should have_content(type.name) }
+    it { should have_link(tag.name, tag_path(tag)) }
 
     it { should have_link('edit', href: edit_passage_path(passage)) }
     it { should have_link('delete', href: passage_path(passage)) }

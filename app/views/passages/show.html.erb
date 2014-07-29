@@ -12,6 +12,12 @@
 <p><%= link_to @passage.author.name, @passage.author %></p>
 <% end %>
 
+<p>
+<% for tag in @passage.tags %>
+<span class="tag"><%= link_to tag.name, tag %></span>
+<% end %>
+</p>
+
 <p><%= link_to "edit", edit_passage_path(@passage) %>
 |
 <%= link_to "delete", @passage, method: :delete, data: { confirm: "Are you sure you want to delete this passage?" } %></p>
