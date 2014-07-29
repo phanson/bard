@@ -8,6 +8,7 @@
           <th>Passage</th>
           <th>Author</th>
           <th>Resource</th>
+          <th>Tags</th>
         </tr>
       </thead>
       <tbody>
@@ -30,6 +31,12 @@
           <td>
             <% if passage.resource %>
             <%= link_to passage.resource.name, passage.resource %>
+            <% end %>
+          </td>
+
+          <td>
+            <% for tag in passage.tags %>
+            <span class="tag"><%= link_to tag.name, tag %></span>
             <% end %>
           </td>
         </tr>

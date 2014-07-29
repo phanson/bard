@@ -5,8 +5,10 @@ RSpec.describe "Passage pages", type: :feature do
 
   describe "index page" do
     let(:author) { Person.create(name: "Thomas Jefferson") }
+    let(:tag) { Tag.create(name: "marvellous") }
     let(:bare_passage) { Passage.create(body: "This is a passage with no title.",
-                                        author: author) }
+                                        author: author,
+                                        tags: [tag]) }
 
     let(:type) { ResourceType.create(name: "Book") }
     let(:resource) { Resource.create(name: "Some Book",
@@ -25,6 +27,7 @@ RSpec.describe "Passage pages", type: :feature do
 
     it { should have_link(bare_passage.body, passage_path(bare_passage)) }
     it { should have_link(author.name, person_path(author)) }
+    it { should have_link(tag.name, tag_path(tag)) }
 
     it { should have_link(titled_passage.title, passage_path(titled_passage)) }
     it { should have_link(resource.name, resource_path(resource)) }
