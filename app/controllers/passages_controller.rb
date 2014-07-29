@@ -40,6 +40,6 @@ class PassagesController < ApplicationController
 
   private
   def passage_params
-    params.require(:passage).permit(:title, :body, :resource_id, :author_id)
+    params.require(:passage).permit(:title, :body, :resource_id, :author_id, tag_ids: [])
   end
 end

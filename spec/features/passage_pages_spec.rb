@@ -90,10 +90,12 @@ RSpec.describe "Passage pages", type: :feature do
     let(:resource) { Resource.create(name: "On The Proliferation of Monofilament Violins",
                                      authors: "Matthew Broderick",
                                      type: type) }
+    let(:tag) { Tag.create(name: "well-reasoned") }
     let(:author) { Person.create(name: "Sun Zhou") }
     before do
       author.save
       resource.save
+      tag.save
       visit new_passage_path
     end
 
@@ -102,6 +104,7 @@ RSpec.describe "Passage pages", type: :feature do
     it { should have_field("Body") }
     it { should have_select("Resource") }
     it { should have_select("Author") }
+    it { should have_select("Tags") }
     it { should have_link("Cancel", href: passages_path) }
     it { should have_button("Create") }
 
@@ -121,6 +124,7 @@ RSpec.describe "Passage pages", type: :feature do
         fill_in "Title", with: "A Marked Departure"
         fill_in "Body", with: "It was not until the late 23rd century that the true power of monofilament violins for torture was discovered..."
         select resource.name, from: "Resource"
+        select tag.name, from: "Tags"
       end
 
       it "should create a new passage" do
@@ -133,6 +137,7 @@ RSpec.describe "Passage pages", type: :feature do
         it { should have_content("A Marked Departure") }
         it { should have_content(resource.name) }
         it { should_not have_content(author.name) }
+        it { should have_content(tag.name) }
       end
     end
 
@@ -152,6 +157,7 @@ RSpec.describe "Passage pages", type: :feature do
         it { should have_content("The natural state of copper") }
         it { should have_content(author.name) }
         it { should_not have_content(resource.name) }
+        it { should_not have_content(tag.name) }
       end
     end
 
@@ -177,6 +183,7 @@ RSpec.describe "Passage pages", type: :feature do
                                      authors: "Matthew Broderick",
                                      type: type) }
     let(:author) { Person.create(name: "Sun Zhou") }
+    let(:tag) { Tag.create(name: "blarney") }
     let(:passage) { Passage.create(title: "Made in China",
                                    body: "This quote is a 100% genuine export of Xaioming.",
                                    resource: resource,
@@ -184,6 +191,7 @@ RSpec.describe "Passage pages", type: :feature do
     before do
       author.save
       resource.save
+      tag.save
       passage.save
       visit edit_passage_path(passage)
     end
@@ -193,6 +201,7 @@ RSpec.describe "Passage pages", type: :feature do
     it { should have_field("Body", with: passage.body) }
     it { should have_select("Resource", text: resource.name) }
     it { should have_select("Author", text: author.name) }
+    it { should have_select("Tags") }
     it { should have_link("Cancel", href: passages_path) }
     it { should have_button("Save") }
 
@@ -214,6 +223,7 @@ RSpec.describe "Passage pages", type: :feature do
       it { should have_content("A Marked Departure") }
       it { should have_content(resource.name) }
       it { should_not have_content(author.name) }
+      it { should_not have_content(tag.name) }
     end
 
     describe "with valid data" do
@@ -221,6 +231,7 @@ RSpec.describe "Passage pages", type: :feature do
         fill_in "Body", with: "The natural state of copper is residential plumbing. We are merely restoring it."
         select author.name, from: "Author"
         select "", from: "Resource"
+        select tag.name, from: "Tags"
         click_on "Save"
       end
 
@@ -228,6 +239,7 @@ RSpec.describe "Passage pages", type: :feature do
       it { should have_content("The natural state of copper") }
       it { should have_content(author.name) }
       it { should_not have_content(resource.name) }
+      it { should have_content(tag.name) }
     end
 
     describe "with invalid data" do

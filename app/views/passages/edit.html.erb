@@ -23,6 +23,11 @@
       <%= f.collection_select :author_id, Person.order(:name), :id, :name, { include_blank: true }, { class: "form-control" } %>
     </div>
 
+    <div class="form-group">
+      <%= f.label :tag_ids, "Tags" %>
+      <%= f.collection_select :tag_ids, Tag.order(:name), :id, :name, { }, { class: "form-control", multiple: true } %>
+    </div>
+
     <%= link_to "Cancel", passages_path, class: "btn btn-danger" %>
     <%= f.submit "Save", class: "btn btn-primary" %>
     <% end %>
