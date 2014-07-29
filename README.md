@@ -1,5 +1,7 @@
 # Bard
 
+[![Build Status](https://travis-ci.org/phanson/bard.png?branch=master)](https://travis-ci.org/phanson/bard)
+
 A small hosted Rails application to manage quotes, anecdotes, and illustrations, with author and source information.
 
 This project is maybe 50% complete. It's a learning project.
