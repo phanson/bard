@@ -27,6 +27,7 @@ RSpec.describe "Tag pages", type: :feature do
       it { should have_content(tag.name) }
       it { should have_link('edit', href: edit_tag_path(tag)) }
       it { should have_link('delete', href: tag_path(tag)) }
+      it { should have_link('back', href: tags_path) }
     end
 
     describe "with passages" do
@@ -41,8 +42,9 @@ RSpec.describe "Tag pages", type: :feature do
       it { should have_content(tag.name) }
       it { should have_link('edit', href: edit_tag_path(tag)) }
       it { should_not have_link('delete', href: tag_path(tag)) }
+      it { should have_link('back', href: tags_path) }
       it { should have_content(passage.body) }
-      #it { should have_link('view', href: passage_path(passage)) }
+      it { should have_link('permalink', href: passage_path(passage)) }
     end
 
     describe "delete link" do
