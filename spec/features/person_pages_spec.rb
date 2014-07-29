@@ -36,7 +36,7 @@ RSpec.describe "Person pages", type: :feature do
 
     it { should have_content("1 passage") }
     it { should have_content(passage.body) }
-    #it { should have_link('permalink', href: passage_path(passage)) }
+    it { should have_link('permalink', href: passage_path(passage)) }
 
     describe "after clicking 'delete'" do
       before do

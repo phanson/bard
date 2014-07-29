@@ -6,10 +6,19 @@
 
 <p><%= pluralize(@person.passages.count, 'passage') %></p>
 
-<ul>
-  <% for passage in @person.passages %>
-  <li><%= passage.body %></li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table table-hover">
+      <tbody>
+        <% for passage in @person.passages %>
+        <tr>
+          <td><%= passage.body %></td>
+          <td><%= link_to "permalink", passage %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <%= link_to 'back', people_path %>
