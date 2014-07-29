@@ -9,3 +9,22 @@
 <% if @resource.date %>
 <p><strong>Date</strong>: <%= @resource.date %></p>
 <% end %>
+
+<p><%= pluralize(@resource.passages.count, 'passage') %></p>
+
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table table-hover">
+      <tbody>
+        <% for passage in @resource.passages %>
+        <tr>
+          <td><%= passage.body %></td>
+          <td><%= link_to "permalink", passage %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= link_to "back", resources_path %>
