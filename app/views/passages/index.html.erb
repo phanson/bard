@@ -1,50 +1,6 @@
 <h1>Passages <%= link_to "add", new_passage_path, class: "btn btn-sm btn-primary" %></h1>
 
-<div class="row">
-  <div class="col-xs-12">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Passage</th>
-          <th>Author</th>
-          <th>Resource</th>
-          <th>Tags</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% for passage in @passages %>
-        <tr>
-          <td>
-            <% if passage.title.present? %>
-            <%= link_to passage.title, passage %>
-            <% else %>
-            <%= link_to passage.body, passage %>
-            <% end %>
-          </td>
-
-          <td>
-            <% if passage.author %>
-            <%= link_to passage.author.name, passage.author %>
-            <% end %>
-          </td>
-
-          <td>
-            <% if passage.resource %>
-            <%= link_to passage.resource.name, passage.resource %>
-            <% end %>
-          </td>
-
-          <td>
-            <% for tag in passage.tags %>
-            <span class="tag"><%= link_to tag.name, tag %></span>
-            <% end %>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
+<%= render @passages %>
 
 <div class="row">
   <div class="col-xs-12">

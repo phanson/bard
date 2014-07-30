@@ -1,0 +1,17 @@
+<div class="row passage">
+  <div class="col-md-8 body">
+    <% if passage.title.present? %>
+    <%= link_to passage.title, passage %>
+    <% else %>
+    <%= link_to passage.body, passage %>
+    <% end %>
+  </div>
+  <div class="col-md-2 attribution">
+    <% if passage.author %>
+    <span class="author"><%= link_to passage.author.name, passage.author %></span><% end %><% if passage.author && passage.resource %>,<% end %>
+    <% if passage.resource %>
+    <span class="resource"><%= link_to passage.resource.name, passage.resource %></span>
+    <% end %>
+  </div>
+  <div class="col-md-2 tags"><%= render passage.tags %></div>
+</div>

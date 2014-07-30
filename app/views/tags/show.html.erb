@@ -6,19 +6,6 @@
 
 <p><%= pluralize(@passages.count, 'passage') %> tagged with <em><%= @tag.name %></em>:</p>
 
-<div class="row">
-  <div class="col-xs-12">
-    <table class="table table-hover">
-      <tbody>
-        <% for passage in @passages %>
-        <tr>
-          <td><%= passage.body %></td>
-          <td><%= link_to "permalink", passage %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
+<%= render @passages %>
 
 <%= link_to "back", tags_path %>

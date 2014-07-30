@@ -39,8 +39,7 @@ RSpec.describe "Resource pages", type: :feature do
     it { should have_link(type.name, href: resource_type_path(type)) }
     it { should_not have_content("Date") }
 
-    it { should have_content(passage.body) }
-    it { should have_link('permalink', passage_path(passage)) }
+    it { should have_link(passage.body, passage_path(passage)) }
 
     it { should have_link('edit', href: edit_resource_path(resource)) }
     it { should have_link('delete', href: resource_path(resource)) }
